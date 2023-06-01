@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>Steam Codes Generator</name>
-    <description>Library for Generating Steam Two factor codes</description>
+    <name>Steam Trades Library</name>
+    <description>Library for work with Steam Trades</description>
     <url>https://github.com/wonderf/steam-trade-library</url>
     <licenses>
         <license>
@@ -28,7 +28,7 @@
 
     <groupId>io.github.wonderf</groupId>
     <artifactId>steam-trade-library</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
