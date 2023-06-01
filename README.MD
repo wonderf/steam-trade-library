@@ -6,7 +6,7 @@
 This library provides minimal features for create and accept Steam Trades. Auth keys and confirmation keys provides by [steam-code-generator](https://github.com/wonderf/steam-code-generator). Don't forget put Stars ⭐⭐⭐ to repository.
 If you interested in this library, please awake me by transactions to my USDT wallet bellow.
 <br><br>
-![Looking for USDT for new projects](/img/USDT.JPG "USDT For new projects" )
+![Looking for USDT for new projects](/img/USDT.jpg "USDT For new projects" )
 # Usage example
 ## Dependency
 ```xml
