@@ -14,7 +14,7 @@ If you interested in this library, please awake me by transactions to my USDT wa
 <dependency>
     <groupId>io.github.wonderf</groupId>
     <artifactId>steam-trade-library</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 ## Create Steam trade offer
