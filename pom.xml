@@ -6,17 +6,17 @@
 
     <name>Steam Codes Generator</name>
     <description>Library for Generating Steam Two factor codes</description>
-    <url>https://github.com/wonderf/steam-code-generator</url>
+    <url>https://github.com/wonderf/steam-trade-library</url>
     <licenses>
         <license>
             <name>MIT License</name>
-            <url>https://github.com/wonderf/steam-code-generator/blob/master/LICENSE</url>
+            <url>https://github.com/wonderf/steam-trade-library/blob/master/LICENSE</url>
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:https://github.com/wonderf/steam-code-generator.git</connection>
-        <url>https://github.com/wonderf/steam-code-generator</url>
-        <developerConnection>scm:git:https://github.com/wonderf/steam-code-generator.git</developerConnection>
+        <connection>scm:git:https://github.com/wonderf/steam-trade-library.git</connection>
+        <url>https://github.com/wonderf/steam-trade-library</url>
+        <developerConnection>scm:git:https://github.com/wonderf/steam-trade-library.git</developerConnection>
     </scm>
     <developers>
         <developer>
