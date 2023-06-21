@@ -32,13 +32,7 @@ public class DefaultSteamOfferAPI extends SteamAPI implements SteamOfferAPI {
         super(transport);
         if(!transport.loggedIn()) throw new NotLoggedInException();
     }
-//todo required mobile confirmation
-    //todo token is required?? ??
-    //todo refere https://steamcommunity.com/tradeoffer/new/?partner=378616477
-    //todo partner token from steam id profile StartTradeOffer( 378616477 ) or exception profile is not public
-    //todo in body partner is steam id
 
-    //todo response {"tradeofferid":"6072115023","needs_mobile_confirmation":true,"needs_email_confirmation":false,"email_domain":"gmail.com"}
     @Override
     public CreatedTradeOffer createOffer(String steamId, String tradeMessage, String jsonTradeOffer) {
         List<NameValuePair> params = new ArrayList<>();
@@ -126,9 +120,8 @@ public class DefaultSteamOfferAPI extends SteamAPI implements SteamOfferAPI {
                 List<IncomingOffer> offers = new ArrayList<>();
                 Elements select = parse.select("div.tradeoffer");
                 for(Element t : select){
-//                    > div.tradeoffer_items_ctn.active > div.link_overlay
                     String senderId = t.select("a").attr("onclick").replaceAll("\\D", "");
-                    IncomingOffer offer = new IncomingOffer(t.select("div.tradeoffer_items_ctn.active > div.link_overlay").attr("onclick").replaceAll("\\D",""),senderId);
+                    IncomingOffer offer = new IncomingOffer(t.id().replaceAll("\\D",""),senderId);
                     offers.add(offer);
                 }
                 EntityUtils.consume(entity);

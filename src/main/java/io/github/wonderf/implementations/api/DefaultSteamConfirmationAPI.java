@@ -1,5 +1,7 @@
 package io.github.wonderf.implementations.api;
 
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import io.github.wonderf.interfaces.api.SteamConfirmationAPI;
 import io.github.wonderf.models.responses.WaitingConfirmation;
 import io.github.wonderf.steam.code.generator.SteamCodeGenerator;
@@ -29,7 +31,7 @@ public class DefaultSteamConfirmationAPI extends SteamAPI implements SteamConfir
     public List<WaitingConfirmation> get(String steamId,String identitySecret) {
         ConfirmationKey confirmationKey = codeGenerator.confirmationKey(identitySecret);
         ClassicHttpRequest confirmationsRequest = ClassicRequestBuilder
-                .get("https://steamcommunity.com/mobileconf/conf")
+                .get("https://steamcommunity.com/mobileconf/getlist")
                 .addParameter("p", codeGenerator.deviceId(steamId))
                 .addParameter("a",steamId)
                 .addParameter("k",confirmationKey.getKey())
@@ -43,15 +45,14 @@ public class DefaultSteamConfirmationAPI extends SteamAPI implements SteamConfir
                 String page = EntityUtils.toString(entity);
                 EntityUtils.consume(entity);
                 List<WaitingConfirmation> confirmations = new ArrayList<>();
-                Document doc = Jsoup.parse(page);
-                Elements select = doc.select(".mobileconf_list_entry");
-                for(Element confHtml: select){
-                    WaitingConfirmation confirmation = new WaitingConfirmation(
-                            confHtml.attr("data-confid"),
-                            confHtml.attr("data-key"),
-                            confHtml.attr("data-creator"),
+                JSONObject root = JSONObject.parse(page);
+                JSONArray conf = root.getJSONArray("conf");
+                for(int i=0;i<conf.size();i++){
+                    JSONObject o = JSONObject.from(conf.get(i));
+                    WaitingConfirmation waitingConfirmation = new WaitingConfirmation(
+                            o.getString("id"),o.getString("nonce"),o.getString("creator_id"),
                             confirmationsRequest.toString().split(" ")[1]);
-                    confirmations.add(confirmation);
+                    confirmations.add(waitingConfirmation);
                 }
                 return confirmations;
             });

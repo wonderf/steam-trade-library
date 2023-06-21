@@ -44,7 +44,7 @@ public class DefaultSteamTradeClient implements SteamTradeClient {
                 Optional<WaitingConfirmation> byTradeOfferId = confirmationAPI.findByTradeOfferId(tradeOfferId, account.getSteamId(), account.getIdentitySecret());
                 if(byTradeOfferId.isPresent())
                     return new AcceptedOffer(confirmationAPI.accept(byTradeOfferId.get(), account.getSteamId(), account.getIdentitySecret()));
-            }
+            }else return acceptedOffer;
         }
         throw new TradeNotFoundException("Not found trade with id " + tradeOfferId);
     }
