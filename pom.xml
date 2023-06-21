@@ -28,7 +28,7 @@
 
     <groupId>io.github.wonderf</groupId>
     <artifactId>steam-trade-library</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.1</version>
 
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
